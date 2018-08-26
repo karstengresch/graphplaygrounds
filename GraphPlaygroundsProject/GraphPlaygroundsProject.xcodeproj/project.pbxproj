@@ -1,0 +1,135 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		3D9BDCD72132A91400CFD1A2 /* GraphAggregate */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3D9BDCD82132A91400CFD1A2 /* Build configuration list for PBXAggregateTarget "GraphAggregate" */;
+			buildPhases = (
+				3D9BDCDB2132A92C00CFD1A2 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = GraphAggregate;
+			productName = GraphAggregate;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXFileReference section */
+		3D9BDCD62132A80300CFD1A2 /* GraphPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = GraphPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		3D9BDCCF2132A69F00CFD1A2 = {
+			isa = PBXGroup;
+			children = (
+				3D9BDCD62132A80300CFD1A2 /* GraphPlayground.playground */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		3D9BDCD02132A69F00CFD1A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0940;
+				TargetAttributes = {
+					3D9BDCD72132A91400CFD1A2 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 3D9BDCD32132A69F00CFD1A2 /* Build configuration list for PBXProject "GraphPlaygroundsProject" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 3D9BDCCF2132A69F00CFD1A2;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D9BDCD72132A91400CFD1A2 /* GraphAggregate */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3D9BDCDB2132A92C00CFD1A2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cp -rv \"${SRCROOT}/Carthage/Build/iOS/\" \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3D9BDCD42132A69F00CFD1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		3D9BDCD52132A69F00CFD1A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		3D9BDCD92132A91400CFD1A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BD2TPDQG5D;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3D9BDCDA2132A91400CFD1A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BD2TPDQG5D;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D9BDCD32132A69F00CFD1A2 /* Build configuration list for PBXProject "GraphPlaygroundsProject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D9BDCD42132A69F00CFD1A2 /* Debug */,
+				3D9BDCD52132A69F00CFD1A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D9BDCD82132A91400CFD1A2 /* Build configuration list for PBXAggregateTarget "GraphAggregate" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D9BDCD92132A91400CFD1A2 /* Debug */,
+				3D9BDCDA2132A91400CFD1A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3D9BDCD02132A69F00CFD1A2 /* Project object */;
+}
