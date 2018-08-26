@@ -23,17 +23,17 @@ unitC["id"]: Int = 190
 graph.sync()
 
 let basicSearch = Search<Entity>(graph: graph).for(types: "Unit")
-basicSearch.sync()
-print("Search brought \(basicSearch.count) items.")
+print("Search brought \(basicSearch.sync().count) items.")
 
-//let unitsSorted = Search<Entity>(graph: graph).for(types: "Unit").sync().sorted(by: { (a: Entity, b: Entity) -> Bool in
-//  return (a["id"] as! Int) < (b["id"] as! Int)
-//})
-//
-//for unit in unitsSorted {
-//  if let name = unit["name"] {
-//    print("Unit ID: \(unit.id) name: \(name)")
-//  }
-//}
+let unitsSorted = Search<Entity>(graph: graph).for(types: "Unit").sync().sorted(by: {
+  (a: Entity, b: Entity) -> Bool in
+    return (a["id"] as! Int) < (b["id"] as! Int)
+})
+
+for unit in unitsSorted {
+  if let name = unit["name"], id = unit["id"] {
+    print("Unit ID: \(id) name: \(name)")
+  }
+}
 
 //: [Next](@next)
