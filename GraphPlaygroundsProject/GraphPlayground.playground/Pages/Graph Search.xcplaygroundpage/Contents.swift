@@ -8,17 +8,17 @@ let graph = Graph()
 let unitA = Entity(type: "Unit")
 unitA["name"] = "UnitA"
 unitA["isExpensive"] = true
-unitA["id"]: Int = 122
+unitA["id"] = 122
 
 let unitB = Entity(type: "Unit")
 unitB["name"] = "UnitB"
 unitC["isExpensive"] = false
-unitB["id"]: Int = 19
+unitB["id"] = 19
 
 let unitC = Entity(type: "Unit")
 unitC["name"] = "UnitC"
 unitC["isExpensive"] = true
-unitC["id"]: Int = 190
+unitC["id"] = 7
 
 graph.sync()
 
