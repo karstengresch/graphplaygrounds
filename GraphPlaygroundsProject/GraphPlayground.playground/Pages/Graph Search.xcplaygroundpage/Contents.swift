@@ -12,7 +12,7 @@ unitA["id"] = 122
 
 let unitB = Entity(type: "Unit")
 unitB["name"] = "UnitB"
-unitC["isExpensive"] = false
+unitB["isExpensive"] = false
 unitB["id"] = 19
 
 let unitC = Entity(type: "Unit")
@@ -31,7 +31,7 @@ let unitsSorted = Search<Entity>(graph: graph).for(types: "Unit").sync().sorted(
 })
 
 for unit in unitsSorted {
-  if let name = unit["name"], id = unit["id"] {
+  if let name = unit["name"], let id = unit["id"] {
     print("Unit ID: \(id) name: \(name)")
   }
 }
