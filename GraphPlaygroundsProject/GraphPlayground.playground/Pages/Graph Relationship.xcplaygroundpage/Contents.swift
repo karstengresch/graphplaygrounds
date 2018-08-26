@@ -35,7 +35,7 @@ for unitRaw in unitsRaw {
 
 let unitsSorted = Search<Entity>(graph: graph).for(types: "Unit").sync().sorted(by: {
   (a: Entity, b: Entity) -> Bool in
-    return (a["id"] as! Int) < (b["id"] as! Int)
+  return (a["id"] as! Int) < (b["id"] as! Int)
 })
 
 print("\n Sorted Result")

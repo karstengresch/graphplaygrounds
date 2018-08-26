@@ -3,5 +3,6 @@
     <pages>
         <page name='Graph Setup'/>
         <page name='Graph Search'/>
+        <page name='Graph Relationship'/>
     </pages>
 </playground>
