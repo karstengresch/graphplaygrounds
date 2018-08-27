@@ -42,9 +42,9 @@ expense2["amount"] = "150"
 expense2["trip"] = "CANADA"
 expense2["user"] = "Jack"
 
-let search2 = Search<Entity>(graph:graph).for(types: "Expense").where(properties: [("user","Jack"),("trip","CANADA")],using: SearchCondition.and)
+let search2 = (Search<Entity>(graph:graph).for(types: "Expense").where(properties: [("user","Jack"),("trip","CANADA")],using: SearchCondition.and)).sync()
 
-for record in search2.sync() {
+for record in search2 {
   print("\n",record,"\n")
 }
 //: [Next](@next)
