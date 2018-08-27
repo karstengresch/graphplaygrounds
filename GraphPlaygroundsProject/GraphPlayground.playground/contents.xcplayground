@@ -4,5 +4,6 @@
         <page name='Graph Setup'/>
         <page name='Graph Search'/>
         <page name='Graph Relationship'/>
+        <page name='Graph Relationship II'/>
     </pages>
 </playground>

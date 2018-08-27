@@ -39,9 +39,11 @@ unitC.is(relationship: "UnitOfSection").in(object: sectionA)
 
 graph.sync()
 
-let unitsRaw = Search<Entity>(graph: graph).for(types: "Unit").sync()
-print("Search brought \(unitsRaw.count) items.")
+let unitsRaw = Search<Entity>(graph: graph).for(types: "Unit")
+print("Search brought \(unitsRaw.sync().count) items.")
 
+let relatedUnits = unitsRaw.sync().first!.relationships(types: "UnitOfSection").subject(types: "Section")
+print(relatedUnits)
 
 
 //: [Next](@next)

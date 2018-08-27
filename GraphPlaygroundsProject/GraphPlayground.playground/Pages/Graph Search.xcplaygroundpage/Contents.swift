@@ -45,4 +45,7 @@ for unit in unitsSorted {
   }
 }
 
+let unitBOnly = Search<Entity>(graph: graph).for(types: "Unit").where(properties: ("name", "UnitB"))
+print("\(unitBOnly)")
+
 //: [Next](@next)
