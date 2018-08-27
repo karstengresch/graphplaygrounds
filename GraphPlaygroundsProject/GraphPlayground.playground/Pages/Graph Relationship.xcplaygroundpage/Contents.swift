@@ -6,43 +6,42 @@ import Graph
 let graph = Graph()
 graph.clear()
 
+let sectionA = Entity(type: "Section")
+sectionA["id"] = 12
+sectionA["name"] = "SectionA"
+
+let sectionB = Entity(type: "Section")
+sectionB["id"] = 2
+sectionB["name"] = "SectionB"
+
+// Relationships
+//sessionBeHereNow.is(relationship: "SessionOfPackage").in(object: packageTryouts)
+//sessionBeHereNow.is(relationship: "SessionOfPackage").in(object: packageSupremeFocus)
+
 let unitA = Entity(type: "Unit")
+unitA["id"] = 122
 unitA["name"] = "UnitA"
 unitA["isExpensive"] = true
-unitA["id"] = 122
+unitA.is(relationship: "UnitOfSection").in(object: sectionA)
 
 let unitB = Entity(type: "Unit")
+unitB["id"] = 19
 unitB["name"] = "UnitB"
 unitB["isExpensive"] = false
-unitB["id"] = 19
+unitB.is(relationship: "UnitOfSection").in(object: sectionB)
+
 
 let unitC = Entity(type: "Unit")
+unitC["id"] = 7
 unitC["name"] = "UnitC"
 unitC["isExpensive"] = true
-unitC["id"] = 7
+unitC.is(relationship: "UnitOfSection").in(object: sectionA)
 
 graph.sync()
 
 let unitsRaw = Search<Entity>(graph: graph).for(types: "Unit").sync()
 print("Search brought \(unitsRaw.count) items.")
 
-print("\nRaw Result")
-for unitRaw in unitsRaw {
-  if let name = unitRaw["name"], let id = unitRaw["id"] {
-    print("Unit ID: \(id) name: \(name)")
-  }
-}
 
-let unitsSorted = Search<Entity>(graph: graph).for(types: "Unit").sync().sorted(by: {
-  (a: Entity, b: Entity) -> Bool in
-  return (a["id"] as! Int) < (b["id"] as! Int)
-})
-
-print("\n Sorted Result")
-for unit in unitsSorted {
-  if let name = unit["name"], let id = unit["id"] {
-    print("Unit ID: \(id) name: \(name)")
-  }
-}
 
 //: [Next](@next)
