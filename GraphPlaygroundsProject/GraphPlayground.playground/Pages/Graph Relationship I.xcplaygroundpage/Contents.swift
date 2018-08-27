@@ -42,7 +42,7 @@ let units = unitsSearch.sync()
 print("Search brought \(unitsSearch.sync().count) items.")
 
 let unitResult = units.filter( { (unit) -> Bool in
-  return unit.relationship(types: "UnitOfSection").contains(Entity(type: "Section").properties(sectionA))
+  return unit.relationship(types: "UnitOfSection").count > 0
 })
 
 //: [Next](@next)
