@@ -1,5 +1,6 @@
 //: [Previous](@previous)
 // Source: https://github.com/CosmicMind/Graph/issues/132
+
 import Foundation
 import Graph
 
@@ -47,4 +48,5 @@ let search2 = (Search<Entity>(graph:graph).for(types: "Expense").where(propertie
 for record in search2 {
   print("\n",record,"\n")
 }
+
 //: [Next](@next)
