@@ -38,8 +38,11 @@ graph.sync()
 
 let unitsSearch = Search<Entity>(graph: graph).for(types: "Unit")
 let units = unitsSearch.sync()
+
 print("Search brought \(unitsSearch.sync().count) items.")
 
-
+let unitResult = units.filter( { (unit) -> Bool in
+  
+})
 
 //: [Next](@next)
