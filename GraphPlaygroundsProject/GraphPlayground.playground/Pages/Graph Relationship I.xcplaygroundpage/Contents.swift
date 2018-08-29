@@ -52,6 +52,4 @@ let unitResult = units.filter( { (unit) -> Bool in
   return unit.relationship(types: "UnitOfSection").count > 0
 })
 
-
-
 //: [Next](@next)
