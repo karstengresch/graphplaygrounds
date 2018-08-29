@@ -27,22 +27,31 @@ unitB["name"] = "UnitB"
 unitB["isExpensive"] = false
 unitB.is(relationship: "UnitOfSection").of(sectionB)
 
-
 let unitC = Entity(type: "Unit")
 unitC["id"] = 7
 unitC["name"] = "UnitC"
 unitC["isExpensive"] = true
 unitC.is(relationship: "UnitOfSection").of(sectionA)
 
+let unitD = Entity(type: "Unit")
+unitD["name"] = "UnitD"
+unitD["isExpensive"] = false
+unitD["id"] = 4
+unitD.is(relationship: "UnitOfSection").of(sectionB)
+
 graph.sync()
 
 let unitsSearch = Search<Entity>(graph: graph).for(types: "Unit")
-let units = unitsSearch.sync()
+// let units = unitsSearch.sync()
+
+let units = unitsSearch.sync().filter { ($0["isExpensive"] as? Bool) == false && !$0.relationship(types: "UnitOfSection").isEmpty }
 
 print("Search brought \(unitsSearch.sync().count) items.")
 
 let unitResult = units.filter( { (unit) -> Bool in
   return unit.relationship(types: "UnitOfSection").count > 0
 })
+
+
 
 //: [Next](@next)
