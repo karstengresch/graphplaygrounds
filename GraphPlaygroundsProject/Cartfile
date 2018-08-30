@@ -1,1 +1,2 @@
 github "CosmicMind/Graph" >= 2.2.2
+# github "https://github.com/CosmicMind/Graph.git" "development"

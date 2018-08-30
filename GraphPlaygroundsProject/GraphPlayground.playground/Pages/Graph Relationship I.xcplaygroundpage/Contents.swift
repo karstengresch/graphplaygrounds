@@ -44,12 +44,45 @@ graph.sync()
 let unitsSearch = Search<Entity>(graph: graph).for(types: "Unit")
 print("Search brought \(unitsSearch.sync().count) items.")
 
-let units = unitsSearch.sync().filter { ($0["isExpensive"] as? Bool) == false && !$0.relationship(types: "UnitOfSection").isEmpty }
+// let units = unitsSearch.sync().filter { ($0["isExpensive"] as? Bool) == false && !$0.relationship(types: "UnitOfSection").contains(sectionA) }
+
+// let units = unitsSearch.sync().filter{ ($0["isExpensive"] as? Bool) == false && $0.relationship(types: "UnitOfSection").contains(sectionA) }
+// let units = unitsSearch.sync().filter{ ($0["isExpensive"] as? Bool) == false && $0.relationship(types: "UnitOfSection").subject(types: ["Section"]).contains(where: ) }
+  
+  // .properties([("name", "SectionA")])) }
+  
+  
+/*
+
+   // You can do it as a parameter:
+   
+   let search = Search<Entity>(graph: graph).for(types: "User").where(properties: [("name", "Daniel"), ("age", 33)], using: .and)
+   
+   // Or as a filter.
+   
+   let search = Search<Entity>(graph: graph).for(types: "User").where(properties: ("name", "Daniel")).filter { (entity) -> Bool in
+   return entity["age"] as? Int == 33
+   }
+   
+*/
+  
+  
+  
+  
 
 print("Filtered result brought \(units.count) items.")
 
 for unit in units {
   print("Name: \(unit["name"])")
 }
+
+//let unitsTry = unitsSearch.sync().filter { ($0["isExpensive"] as? Bool) == false && !$0.relationship(types: "UnitOfSection").object(types: ["Section"]).filter( $0["name"] as! String€ == "SectionA") }
+//
+//print("Filtered result brought \(unitsTry.count) items.")
+
+//for unit in unitsTry {
+//  print("Name: \(String(describing: unit["name"]))")
+//}
+
 
 //: [Next](@next)
