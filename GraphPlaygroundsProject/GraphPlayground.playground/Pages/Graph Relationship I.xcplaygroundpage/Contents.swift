@@ -41,48 +41,21 @@ unitD.is(relationship: "UnitOfSection").of(sectionA)
 
 graph.sync()
 
-let unitsSearch = Search<Entity>(graph: graph).for(types: "Unit")
-print("Search brought \(unitsSearch.sync().count) items.")
+let allUnits = Search<Entity>(graph: graph).for(types: "Unit")
+print("Search brought \(allUnits.sync().count) items.")
 
-// let units = unitsSearch.sync().filter { ($0["isExpensive"] as? Bool) == false && !$0.relationship(types: "UnitOfSection").contains(sectionA) }
-
-// let units = unitsSearch.sync().filter{ ($0["isExpensive"] as? Bool) == false && $0.relationship(types: "UnitOfSection").contains(sectionA) }
-// let units = unitsSearch.sync().filter{ ($0["isExpensive"] as? Bool) == false && $0.relationship(types: "UnitOfSection").subject(types: ["Section"]).contains(where: ) }
-  
-  // .properties([("name", "SectionA")])) }
-  
-  
-/*
-
-   // You can do it as a parameter:
-   
-   let search = Search<Entity>(graph: graph).for(types: "User").where(properties: [("name", "Daniel"), ("age", 33)], using: .and)
-   
-   // Or as a filter.
-   
-   let search = Search<Entity>(graph: graph).for(types: "User").where(properties: ("name", "Daniel")).filter { (entity) -> Bool in
-   return entity["age"] as? Int == 33
-   }
-   
-*/
-  
-  
-  
-  
-
-print("Filtered result brought \(units.count) items.")
-
-for unit in units {
-  print("Name: \(unit["name"])")
+// Source: Orkhan Alikhanov at https://stackoverflow.com/a/52119747/4295602
+let filteredUnits = Search<Entity>(graph: graph).for(types: "Unit").sync().filter { entity in
+  (entity["isExpensive"] as? Bool) == false &&
+    entity.relationship(types: "UnitOfSection").contains(where: { relationship in
+      relationship.object == sectionA
+    })
 }
 
-//let unitsTry = unitsSearch.sync().filter { ($0["isExpensive"] as? Bool) == false && !$0.relationship(types: "UnitOfSection").object(types: ["Section"]).filter( $0["name"] as! String€ == "SectionA") }
-//
-//print("Filtered result brought \(unitsTry.count) items.")
+print("Filtered search brought \(filteredUnits.count) items.")
 
-//for unit in unitsTry {
-//  print("Name: \(String(describing: unit["name"]))")
-//}
-
+for unit in filteredUnits {
+  print("Name: \(unit["name"])")
+}
 
 //: [Next](@next)
